@@ -5,7 +5,7 @@ html {
 
 body {
   /* Margin bottom by footer height */
-  margin-bottom: 60px;
+  margin-bottom: 40px;
 }
 
 h1 {
@@ -25,12 +25,21 @@ h2 {
     padding-bottom: 10px;
 }
 
+h1 > a:link, h1 > a:visited {
+    color: #333;
+}
+
+h1 > a:hover {
+    color: #777;
+    text-decoration: none;
+}
+
 .footer {
   position: absolute;
   bottom: 0;
   width: 100%;
   /* Set the fixed height of the footer here */
-  height: 60px;
+  height: 40px;
   background-color: #f5f5f5;
 }
 
@@ -74,6 +83,75 @@ h2 {
     font-size: 4em;
 }
 
+.carousel-inner > .item > img {
+    margin: 0 auto;
+}
+
+#overlay {
+    background: rgba(0,0,0,0.7);
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    overflow: hidden;
+    top: 0;
+    left: 0;
+    display: none;
+    text-align: center;
+}
+
+#overlay img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#overlay span {
+    color: #fff;
+    display: inline-block;
+}
+
+.caption {
+    position: absolute;
+    top: 90%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+}
+
+.carousel {
+    padding-bottom: 20px;
+}
+
+.carousel-control.right {
+    right: 0;
+    left: auto;
+    background-image: none;
+}
+
+.carousel-control.left {
+    background-image: none;
+}
+
+.glyphicon-chevron-right:before {
+    content: none;
+}
+
+.glyphicon-chevron-left:before {
+    content: none;
+}
+
+.container-fluid {
+    padding: 0;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.text-muted {
+    color: #777;
+    margin-top: 10px;
+    text-align: center;
+}
 
 @media screen and (min-width:768px) {
 	.brand {
@@ -105,7 +183,7 @@ h2 {
     }
 
     .nav>li>a {
-        padding: 20px;
+        padding: 15px 25px;
     }
 
     .navbar-nav>li>a {
