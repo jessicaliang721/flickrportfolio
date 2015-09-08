@@ -1,6 +1,7 @@
-$(document).ready(function(){
-	$('#img_gallery').masonry({
-	  itemSelector: '.grid-item',
-	  isAnimated: true
-	});
-});
+// $(document).ready(function() {
+// 	$('#img_gallery').isotope({
+// 	  // options
+// 	  itemSelector: '.grid-item',
+// 	  layoutMode: 'fitRows'
+// 	});
+// });
