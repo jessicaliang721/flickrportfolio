@@ -85,7 +85,8 @@ $(".gallerylink").click(function(event) {
 			//change src for current image in lightbox to this variable
 			$image.attr("src", image_href);
 			//change the caption to current image in lightbox
-			$caption.text();
+			var captionText = $('.grid-item a[href="' + image_href + '"]').children("img").attr('alt');
+			$caption.text(captionText);
 		});
 
 		$previous.click(function() {
@@ -96,6 +97,8 @@ $(".gallerylink").click(function(event) {
 			}
 			image_href = imgRef[loc];
 			$image.attr("src", image_href);
+			var captionText = $('.grid-item a[href="' + image_href + '"]').children("img").attr('alt');
+			$caption.text(captionText);
 		})
 
 		//when overlay is clicked
