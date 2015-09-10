@@ -1,3 +1,7 @@
+/****************************
+GENERAL STYLES
+****************************/
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -11,6 +15,12 @@ html {
 body {
   /* Margin bottom by footer height */
   margin-bottom: 40px;
+}
+
+.container-fluid {
+    padding: 0;
+    margin-right: auto;
+    margin-left: auto;
 }
 
 h1 {
@@ -30,6 +40,10 @@ h2 {
     padding-bottom: 10px;
 }
 
+/****************************
+LINKS
+****************************/
+
 a:link, a:visited {
     color: #333;
 }
@@ -39,6 +53,10 @@ a:hover {
     text-decoration: none;
 }
 
+/****************************
+FOOTER
+****************************/
+
 .footer {
   position: absolute;
   bottom: 0;
@@ -47,6 +65,16 @@ a:hover {
   height: 40px;
   background-color: #f5f5f5;
 }
+
+.text-muted {
+    color: #777;
+    margin-top: 10px;
+    text-align: center;
+}
+
+/****************************
+IMG GALLERY
+****************************/
 
 .thumbnail {
     display: block;
@@ -59,6 +87,10 @@ a:hover {
     -o-transition: border .2s ease-in-out;
     transition: border .2s ease-in-out;
 }
+
+/****************************
+NAVBAR
+****************************/
 
 .navbar-brand {
     text-transform: uppercase;
@@ -88,9 +120,9 @@ a:hover {
     font-size: 4em;
 }
 
-.carousel-inner > .item > img {
-    margin: 0 auto;
-}
+/****************************
+LIGHTBOX
+****************************/
 
 #overlay {
     background: rgba(0,0,0,0.7);
@@ -143,6 +175,10 @@ a:hover {
     text-align: center;
 }
 
+/****************************
+CAROUSEL
+****************************/
+
 .carousel {
     padding-bottom: 20px;
 }
@@ -165,17 +201,13 @@ a:hover {
     content: none;
 }
 
-.container-fluid {
-    padding: 0;
-    margin-right: auto;
-    margin-left: auto;
+.carousel-inner > .item > img {
+    margin: 0 auto;
 }
 
-.text-muted {
-    color: #777;
-    margin-top: 10px;
-    text-align: center;
-}
+/****************************
+MEDIA QUERIES
+****************************/
 
 @media screen and (min-width:768px) {
 	.brand {
