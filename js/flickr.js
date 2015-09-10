@@ -27,28 +27,39 @@ $(".gallerylink").click(function(event) {
 		// LIGHTBOX
 
 		var $image = $("<img>");
-		var $overlay = $('<div id="overlay"></div>');
+		var $overlay = $('<div id="overlay">' + $content + '</div>');
+		var $content = $('<div id="lightboxContent"></div>');
 		var $caption = $("<p class='caption'></p>");
-		var $previous = $("<span><a href='#'>PREVIOUS</a></span>");
-		var $next = $("<span><a href='#'>NEXT</a></span>");
+		var $previous = $("<button id='buttonPrev'>Previous</button>");
+		var $next = $("<button id='buttonNext'>Next</button>");
+		var image_href;
+		//array will hold all of the references for img sources
+		var imgRef = [];
 
-		$overlay.append($previous, $next);
+		//iterate over every div with class "grid-item"
+		$('div.grid-item').each(function(i, element) {
+			//store the value of each href into imgRef array
+			imgRef[i] = $(element).children("a").attr("href");
+		});
 
-		//add image to overlay
-		$overlay.append($image);
+		//add image to content div
+		$content.append($image);
 
-		//add caption to overlay
-		$overlay.append($caption);
+		//add caption to content div
+		$content.append($caption);
+
+		//add buttons to content div
+		$content.append($previous);
+		$content.append($next);
 
 		//add overlay to body
+		$overlay.append($content);
 		$("body").append($overlay);
-			//show an image
-			//show a caption
 
 		//capture the click event on a link to an image
 		$("#img_gallery a").click(function(event) {
 			event.preventDefault();
-			var image_href = $(this).attr("href");
+			image_href = $(this).attr("href");
 			//update overlay with the image linked in the link
 			$image.attr("src", image_href);
 			//show the overlay
@@ -60,15 +71,39 @@ $(".gallerylink").click(function(event) {
 		});
 
 		$next.click(function() {
-			event.preventDefault();
-			console.log("clicked");
-
+			//find out where href exists in array
+			var loc = imgRef.indexOf(image_href);
+			//increase location counter
+			loc++;
+			//if location larger than the indices of array
+			if (loc === imgRef.length) {
+				//restart from first image
+				loc = 0;
+			}
+			//change the current image src variable
+			image_href = imgRef[loc];
+			//change src for current image in lightbox to this variable
+			$image.attr("src", image_href);
+			//change the caption to current image in lightbox
+			$caption.text();
 		});
 
+		$previous.click(function() {
+			var loc = imgRef.indexOf(image_href);
+			loc--;
+			if (loc < 0) {
+				loc = imgRef.length-1;
+			}
+			image_href = imgRef[loc];
+			$image.attr("src", image_href);
+		})
+
 		//when overlay is clicked
-		$overlay.click(function() {
+		$overlay.click(function(event) {
 			//hide the overlay
-			$overlay.hide();
+			if (event.target.id === "overlay") {
+				$(this).hide();
+			}
 		});
 			
 	};
