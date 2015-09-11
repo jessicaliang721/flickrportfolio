@@ -157,11 +157,11 @@ LIGHTBOX
 }
 
 .caption {
-    position: absolute;
+    /*position: absolute;
     top: 95%;
-    left: 50%;
+    left: 50%;*/
     color: #fff;
-    transform: translate(-50%, -50%);
+    /*transform: translate(-50%, -50%);*/
 }
 
 #lightboxContent {
