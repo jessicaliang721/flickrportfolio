@@ -1,6 +1,23 @@
 $(".gallerylink").click(function(event) {
 	event.preventDefault();
 
+	// MASONRY
+	var masonryObject = {
+		loadIMG: function() {
+			$("#img_gallery").imagesLoaded(this.masonryGrid).masonry('reloadItems');
+		},
+		masonryGrid: function() {
+			$('#img_gallery').masonry({
+			  	// options
+			  	itemSelector: '.grid-item'
+				});
+			}
+	};
+
+	// var lightboxObject = {
+
+	// }
+
 	//AJAX request
 
 	//data returned from Flickr is given to callback
@@ -15,14 +32,8 @@ $(".gallerylink").click(function(event) {
 		});
 		$('#img_gallery').html(photoHTML);
 
-		// MASONRY
-
-		$("#img_gallery").imagesLoaded(function() {
-			$('#img_gallery').masonry({
-			  // options
-			  itemSelector: '.grid-item'
-			});
-		}).masonry('reloadItems');
+		// Call Masonry
+		masonryObject.loadIMG();
 
 		// LIGHTBOX
 
